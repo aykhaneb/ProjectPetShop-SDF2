@@ -1,4 +1,14 @@
-﻿<section class="puffles">
+﻿@using PetShop.ViewModel;
+
+@{
+    HomeViewModel homeViewModel = Model;
+    var offer = homeViewModel.Offers;
+    var featured_Product = homeViewModel.FeaturedProducts;
+
+}
+
+
+<section class="puffles">
     <section class="search d-none">
         <div class="content_search">
             <div class="search_cont">
@@ -10,7 +20,186 @@
     <div class="all_puffles">
         <div class="container">
             <div class="content_puffles">
-                <h1> C# HOME PAGE</h1>
+                <h1>Puffles</h1>
+                <h3>MAKE YOUR PETS HAPPY</h3>
+                <h4>
+                    Our Pet Shop values quality, comfort, and <br />
+                    individuality of our products and services.
+                </h4>
+                <a href="">READ MORE</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured_products">
+    <div class="all_fetured">
+        <div class="container">
+            <div class="content_featured">
+                <div class="head_featured">
+                    <h2>Featured products</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="box_featured_content">
+                            <div class="box_featured">
+                                <div class="photo_featured">
+                                    <img src="/assets/photos/about-1-370x276.jpg" alt="" />
+                                </div>
+                                <div class="link_featured1">
+                                    <a href="">Best pets clothing</a>
+                                </div>
+                                <div class="link_featured2">
+                                    <a href="">MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box_featured_content">
+                            <div class="box_featured">
+                                <div class="photo_featured">
+                                    <img src="/assets/photos/about-2-370x276.jpg" alt="" />
+                                </div>
+                                <div class="link_featured1">
+                                    <a href="">Grooming supplies</a>
+                                </div>
+                                <div class="link_featured2">
+                                    <a href="">MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box_featured_content">
+                            <div class="box_featured">
+                                <div class="photo_featured">
+                                    <img src="/assets/photos/about-3-370x276.jpg" alt="" />
+                                </div>
+                                <div class="link_featured1">
+                                    <a href="">Pet food</a>
+                                </div>
+                                <div class="link_featured2">
+                                    <a href="">MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="offer">
+    <div class="all_offer">
+        <div class="container">
+            <div class="content_offer">
+                <div class="head_offer">
+                    <h2>What we offer</h2>
+                </div>
+                <div class="row g-4">
+                    @foreach(var item in offer)
+                    {
+                        <div class="col-lg-4 offer_lg">
+                            <div class="box_offer_content">
+                                <div class="box_content">
+                                    <div class="photo_offer">
+                                        <img src="/assets/@item.ImageUrl" alt="" />
+                                    </div>
+                                    <div class="text_offer">
+                                        <a href="">@item.Name</a>
+                                        <p>
+                                            @item.Description
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hurry">
+    <div class="all_hurry">
+        <div class="container">
+            <div class="content_hurry">
+                <h2>Hurry up!</h2>
+                <h4>Save 50% on all items your first order</h4>
+                <p>
+                    Shop today to save big on your first order at Puffles Store and
+                    get everything that your dog <br />
+                    needs to stay healthy and happy.
+                </p>
+                <a href="">SHOP NOW</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="container">
+        <div class="content_about">
+            <div class="head_about">
+                <h2>About Us</h2>
+            </div>
+            <div class="bottom_about">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="box_about">
+                            <img src="/assets/photos/about-4-570x511.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box_about about_row">
+                            <div class="square">
+                                <div class="box_info">
+                                    <a href="">
+                                        We always strive for being professional and
+                                        consistent
+                                    </a>
+                                    <p id="1" class="missions">
+                                        Our work is defined by certain values that include
+                                        excellence, care, professionalism, innovation, and
+                                        consistency. We aim to provide the best pet care
+                                        services to you.
+                                    </p>
+                                    <p id="2" class="missions d-none">Our vision at Puffles is to become the #1 online store for pets as well as the space where owners can get any kind of pet-related services at an affordable price.</p>
+                                    <p id="3" class="missions d-none">
+                                        Our work is defined by certain values that include excellence, care, professionalism, innovation, and consistency. We aim to provide the best pet care services to you.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab">
+                                <div class="row text-center">
+                                    <div data-id="1" class="col-lg-4 digits ">
+                                        <div class="number digit_color">
+                                            <h1>01</h1>
+                                            <a href="">OUR MISSION</a>
+                                        </div>
+                                    </div>
+                                    <div data-id="2" class="col-lg-4 digits">
+                                        <div class="number">
+                                            <h1>02</h1>
+                                            <a href="">OUR VISION</a>
+                                        </div>
+                                    </div>
+                                    <div data-id="3" class="col-lg-4 digits">
+                                        <div class="number">
+                                            <h1>03</h1>
+                                            <a href="">OUR VALUES</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

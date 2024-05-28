@@ -13,6 +13,8 @@ namespace PetShop.DAL
         public DbSet<FeaturedProducts> FeaturedProducts { get; set; }
         public DbSet<Blog> Blog { get; set; }
         public DbSet<Gallery> Gallery { get; set; }
+        public DbSet<OfferPart> OfferPart { get; set; }
+        public DbSet<Offer> Offer { get; set; }
 
     }
 }

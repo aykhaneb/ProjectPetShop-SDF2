@@ -16,13 +16,17 @@ namespace PetShop.Controllers
         {
 
             var featured_products = _dbContext.FeaturedProducts.ToList();
+            var offer_parts = _dbContext.OfferPart.ToList();
+            var offers = _dbContext.Offer.ToList();
 
             var homeViewModel = new HomeViewModel
             {
                 FeaturedProducts = featured_products,
+                OfferParts = offer_parts,
+                Offers = offers,
             };
 
-            return View();
+            return View(homeViewModel);
         }
     }
 }
