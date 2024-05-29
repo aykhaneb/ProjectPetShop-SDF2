@@ -1,16 +1,164 @@
-﻿<section class="puffles">
+﻿@using PetShop.ViewModel;
+
+@{
+    AboutViewModel aboutViewModel = Model;
+    var team = aboutViewModel.Teams;
+
+}
+
+<section class="bg_bone">
     <section class="search d-none">
         <div class="content_search">
             <div class="search_cont">
-                <input placeholder="Search..." type="search" name="" id="">
+                <input placeholder="Search..." type="search" name="" id="" />
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
         </div>
     </section>
-    <div class="all_puffles">
-        <div class="container">
-            <div class="content_puffles">
-                <h1> C# ABOUT PAGE</h1>
+    <div class="all_bg_bone">
+        <div class="content_testimonials text-center">
+            <h2>About Us</h2>
+        </div>
+    </div>
+</section>
+
+<section class="pages_full">
+    <a href="index.html">HOME</a>
+    <i class="fa-solid fa-arrow-right"></i>
+    <a href="">PAGES</a>
+    <i class="fa-solid fa-arrow-right"></i>
+    <a class="main_page" href="offer.html">ABOUT US</a>
+</section>
+
+<section class="about">
+    <div class="container">
+        <div class="content_about">
+            <div class="head_about">
+                <h2>About Us</h2>
+            </div>
+            <div class="bottom_about">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="box_about">
+                            <img src="/assets/photos/about-4-570x511.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box_about about_row">
+                            <div class="square">
+                                <div class="box_info">
+                                    <a href="">
+                                        We always strive for being professional and
+                                        consistent
+                                    </a>
+                                    <p id="1" class="missions">
+                                        Our work is defined by certain values that include
+                                        excellence, care, professionalism, innovation, and
+                                        consistency. We aim to provide the best pet care
+                                        services to you.
+                                    </p>
+                                    <p id="2" class="missions d-none">Our vision at Puffles is to become the #1 online store for pets as well as the space where owners can get any kind of pet-related services at an affordable price.</p>
+                                    <p id="3" class="missions d-none">
+                                        Our work is defined by certain values that include excellence, care, professionalism, innovation, and consistency. We aim to provide the best pet care services to you.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab">
+                                <div class="row text-center">
+                                    <div data-id="1" class="col-lg-4 digits ">
+                                        <div class="number digit_color">
+                                            <h1>01</h1>
+                                            <a href="">OUR MISSION</a>
+                                        </div>
+                                    </div>
+                                    <div data-id="2" class="col-lg-4 digits">
+                                        <div class="number">
+                                            <h1>02</h1>
+                                            <a href="">OUR VISION</a>
+                                        </div>
+                                    </div>
+                                    <div data-id="3" class="col-lg-4 digits">
+                                        <div class="number">
+                                            <h1>03</h1>
+                                            <a href="">OUR VALUES</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="team">
+    <div class="container">
+        <div class="content_team">
+            <div class="head_team text-center">
+                <h2>Our Team</h2>
+            </div>
+            <div class="bottom_team text-center">
+                <div class="row">
+                    @foreach(var item in team)
+                    {
+                        <div class="col-lg-4">
+                            <div class="box_team">
+                                <div class="img_team">
+                                    <img src="/assets/@item.ImageUrl" alt="" />
+                                </div>
+                                <div class="text_team">
+                                    <a href="">@item.Name</a>
+                                    <p>
+                                        @item.Description
+                                    </p>
+                                    <div class="icons_team">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                        <i class="fa-brands fa-twitter"></i>
+                                        <i class="fa-brands fa-instagram"></i>
+                                        <i class="fa-brands fa-google-plus-g"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="organic">
+    <div class="container">
+        <div class="content_organic">
+            <div class="row">
+                <div class="col-lg-2-5">
+                    <div class="box_organic">
+                        <img src="/assets/photos/clients-1-120x114.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-2-5">
+                    <div class="box_organic">
+                        <img src="/assets/photos/clients-2-105x118.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-2-5">
+                    <div class="box_organic">
+                        <img src="/assets/photos/clients-3-111x98.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-2-5">
+                    <div class="box_organic">
+                        <img src="/assets/photos/clients-4-122x92.png" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-2-5">
+                    <div class="box_organic">
+                        <img src="/assets/photos/clients-5-112x112.png" alt="" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>

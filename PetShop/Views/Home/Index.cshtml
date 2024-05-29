@@ -4,6 +4,7 @@
     HomeViewModel homeViewModel = Model;
     var offer = homeViewModel.Offers;
     var featured_Product = homeViewModel.FeaturedProducts;
+    var organic = homeViewModel.Organics;
 
 }
 
@@ -40,51 +41,25 @@
                     <h2>Featured products</h2>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="box_featured_content">
-                            <div class="box_featured">
-                                <div class="photo_featured">
-                                    <img src="/assets/photos/about-1-370x276.jpg" alt="" />
-                                </div>
-                                <div class="link_featured1">
-                                    <a href="">Best pets clothing</a>
-                                </div>
-                                <div class="link_featured2">
-                                    <a href="">MORE</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="box_featured_content">
-                            <div class="box_featured">
-                                <div class="photo_featured">
-                                    <img src="/assets/photos/about-2-370x276.jpg" alt="" />
-                                </div>
-                                <div class="link_featured1">
-                                    <a href="">Grooming supplies</a>
-                                </div>
-                                <div class="link_featured2">
-                                    <a href="">MORE</a>
+                    @foreach (var item in featured_Product)
+                    {
+                        <div class="col-lg-4">
+                            <div class="box_featured_content">
+                                <div class="box_featured">
+                                    <div class="photo_featured">
+                                        <img src="/assets/@item.ImageUrl" alt="" />
+                                    </div>
+                                    <div class="link_featured1">
+                                        <a href="">@item.ProductName</a>
+                                    </div>
+                                    <div class="link_featured2">
+                                        <a href="">@item.HrefLink</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="box_featured_content">
-                            <div class="box_featured">
-                                <div class="photo_featured">
-                                    <img src="/assets/photos/about-3-370x276.jpg" alt="" />
-                                </div>
-                                <div class="link_featured1">
-                                    <a href="">Pet food</a>
-                                </div>
-                                <div class="link_featured2">
-                                    <a href="">MORE</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    }
                 </div>
             </div>
         </div>
@@ -99,7 +74,7 @@
                     <h2>What we offer</h2>
                 </div>
                 <div class="row g-4">
-                    @foreach(var item in offer)
+                    @foreach (var item in offer)
                     {
                         <div class="col-lg-4 offer_lg">
                             <div class="box_offer_content">
@@ -117,8 +92,8 @@
                             </div>
                         </div>
                     }
-                    
-                    
+
+
                 </div>
             </div>
         </div>
@@ -142,64 +117,33 @@
     </div>
 </section>
 
-<section class="about">
+<section class="treats">
     <div class="container">
-        <div class="content_about">
-            <div class="head_about">
-                <h2>About Us</h2>
+        <div class="content_treats">
+            <div class="text_treats text-center">
+                <h2>Dog & cat treats</h2>
+                <h4>
+                    Pamper your pets with our range of quality dog & cat treats
+                </h4>
+                <a href="">SHOP NOW</a>
             </div>
-            <div class="bottom_about">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="box_about">
-                            <img src="/assets/photos/about-4-570x511.jpg" alt="" />
+        </div>
+    </div>
+</section>
+
+<section class="organic">
+    <div class="container">
+        <div class="content_organic">
+            <div class="row">
+                @foreach (var item in organic)
+                {
+                    <div class="col-lg-2-5">
+                        <div class="box_organic">
+                            <img src="/assets/@item.ImageUrl" alt="" />
+
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="box_about about_row">
-                            <div class="square">
-                                <div class="box_info">
-                                    <a href="">
-                                        We always strive for being professional and
-                                        consistent
-                                    </a>
-                                    <p id="1" class="missions">
-                                        Our work is defined by certain values that include
-                                        excellence, care, professionalism, innovation, and
-                                        consistency. We aim to provide the best pet care
-                                        services to you.
-                                    </p>
-                                    <p id="2" class="missions d-none">Our vision at Puffles is to become the #1 online store for pets as well as the space where owners can get any kind of pet-related services at an affordable price.</p>
-                                    <p id="3" class="missions d-none">
-                                        Our work is defined by certain values that include excellence, care, professionalism, innovation, and consistency. We aim to provide the best pet care services to you.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="tab">
-                                <div class="row text-center">
-                                    <div data-id="1" class="col-lg-4 digits ">
-                                        <div class="number digit_color">
-                                            <h1>01</h1>
-                                            <a href="">OUR MISSION</a>
-                                        </div>
-                                    </div>
-                                    <div data-id="2" class="col-lg-4 digits">
-                                        <div class="number">
-                                            <h1>02</h1>
-                                            <a href="">OUR VISION</a>
-                                        </div>
-                                    </div>
-                                    <div data-id="3" class="col-lg-4 digits">
-                                        <div class="number">
-                                            <h1>03</h1>
-                                            <a href="">OUR VALUES</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>

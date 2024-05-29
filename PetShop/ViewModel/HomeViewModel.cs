@@ -7,5 +7,6 @@ namespace PetShop.ViewModel
         public List<FeaturedProducts>? FeaturedProducts { get; set; }
         public List<OfferPart>? OfferParts { get; set; }
         public List<Offer>? Offers { get; set; }
+        public List<Organic>? Organics { get; set; }
     }
 }
