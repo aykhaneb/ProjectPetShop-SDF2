@@ -1,0 +1,36 @@
+﻿@model List<FeaturedProducts>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Featured Products Table</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Link</th>   
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>@item.ProductName</td>
+                                <td>@item.HrefLink</td>
+                                <td>
+                                    <a class="btn btn-warning">Update</a>
+                                    <a class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
