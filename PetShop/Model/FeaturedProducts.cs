@@ -1,4 +1,6 @@
-﻿namespace PetShop.Model
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PetShop.Model
 {
     public class FeaturedProducts
     {
