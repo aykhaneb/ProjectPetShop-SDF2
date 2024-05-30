@@ -8,6 +8,6 @@ namespace PetShop.ViewModel
         public string ProductName { get; set; }
         [Required]
         public string HrefLink { get; set; }
-        public IFormFile? ImageUrl { get; set; } = null;
+        public IFormFile? Image { get; set; } = null;
     }
 }

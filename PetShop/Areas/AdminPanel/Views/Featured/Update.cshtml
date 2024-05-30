@@ -4,22 +4,19 @@
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Featured Create Table</h4>
-                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <h4 class="card-title">Update Table</h4>
+                <form class="forms-sample" method="post">
                     <div class="form-group">
                         <label asp-for=ProductName>ProductName</label>
-                        <input asp-for=ProductName class="form-control" id="exampleInputUsername1" placeholder="ProductName">
-                        <span asp-validation-for="ProductName"></span>
+                        <input asp-for=ProductName class="form-control" placeholder="ProductName">
                     </div>
                     <div class="form-group">
                         <label asp-for=HrefLink>HrefLink</label>
-                        <input asp-for=HrefLink class="form-control" id="exampleInputEmail1" placeholder="HrefLink">
-                        <span asp-validation-for="HrefLink"></span>
+                        <input asp-for=HrefLink class="form-control" placeholder="HrefLink">
                     </div>
                     <div class="form-group">
                         <label for="Image">Image</label>
-                        <input type="file" asp-for="Image" class="form-control" id="exampleInputPassword1" placeholder="ImageUrl" accept="image/*">
-                        <span asp-validation-for="Image"></span>
+                        <input type="file" asp-for="Image" class="form-control" placeholder="ImageUrl">
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button asp-controller="featured" asp-action="index" class="btn btn-light">Cancel</button>

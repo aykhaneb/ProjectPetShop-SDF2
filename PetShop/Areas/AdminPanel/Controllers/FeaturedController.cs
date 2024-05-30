@@ -32,7 +32,7 @@ namespace PetShop.Areas.AdminPanel.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Create")]
-        public async Task<IActionResult> Create(FeaturedViewModel featuredViewModel) 
+        public async Task<IActionResult> Create(FeaturedViewModel featuredViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -47,18 +47,18 @@ namespace PetShop.Areas.AdminPanel.Controllers
                 return View();
             }
 
-            if (featuredViewModel.ImageUrl == null)
+            if (featuredViewModel.Image == null)
             {
                 ModelState.AddModelError("Image", "Image input can not be empty ");
                 return View();
             }
 
-            string file = $"{Guid.NewGuid()}-{featuredViewModel.ImageUrl.FileName}";
+            string file = $"{Guid.NewGuid()}-{featuredViewModel.Image.FileName}";
             string path = Path.Combine(_webHostEnvironment.WebRootPath, "file", "featured", file);
-            
+
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {
-                await featuredViewModel.ImageUrl.CopyToAsync(stream);
+                await featuredViewModel.Image.CopyToAsync(stream);
             }
 
             FeaturedProducts featured = new()
@@ -72,6 +72,72 @@ namespace PetShop.Areas.AdminPanel.Controllers
             await _dbContext.FeaturedProducts.AddAsync(featured);
             await _dbContext.SaveChangesAsync();
 
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            var featured = await _dbContext.FeaturedProducts.FindAsync(id);
+
+            if (featured == null) return NotFound();
+
+            _dbContext.FeaturedProducts.Remove(featured);
+
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Update(int? id)
+        {
+            if (id == null) return NotFound();
+            var featured = await _dbContext.FeaturedProducts.FindAsync(id);
+
+            if (featured == null) return NotFound();
+
+            FeaturedViewModel featuredViewModel = new()
+            {
+                ProductName = featured.ProductName,
+                HrefLink = featured.HrefLink,
+            };
+
+            return View(featuredViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int? id, FeaturedViewModel featuredViewModel)
+        {
+            if (id == null) return NotFound();
+
+            var existFeatured = await _dbContext.FeaturedProducts.FindAsync(id);
+            if (existFeatured is null) return NotFound();
+
+            if (featuredViewModel.Image != null)
+            {
+                var oldPath = Path.Combine(_webHostEnvironment.WebRootPath, "file", "featured", existFeatured.ImageUrl);
+
+                if (System.IO.File.Exists(oldPath))
+                { System.IO.File.Delete(oldPath); }
+
+                string file = $"{Guid.NewGuid()}-{featuredViewModel.Image.FileName}";
+                string path = Path.Combine(_webHostEnvironment.WebRootPath, "file", "featured", file);
+
+                using (FileStream stream = new FileStream(path, FileMode.Create))
+                {
+                    await featuredViewModel.Image.CopyToAsync(stream);
+                }
+
+                existFeatured.ImageUrl = file;
+            }
+
+            existFeatured.ProductName = featuredViewModel.ProductName;
+            existFeatured.HrefLink = featuredViewModel.HrefLink;
+
+            await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
