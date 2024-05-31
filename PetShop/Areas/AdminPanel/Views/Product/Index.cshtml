@@ -1,0 +1,37 @@
+﻿@model List<ShopProduct>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Featured Products Table</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td> <img src="~/file/featured/@item.ImageUrl" /> </td>
+                                <td>@item.Name</td>
+                                <td>@item.Price</td>
+                                <td>
+                                    <a class="btn btn-warning" asp-action="update" asp-route-id="@item.Id">Update</a>
+                                    <form asp-action="delete" method="post" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger" asp-action="delete" asp-route-id="@item.Id">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
