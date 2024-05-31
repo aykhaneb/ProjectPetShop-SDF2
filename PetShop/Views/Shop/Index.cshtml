@@ -1,17 +1,73 @@
-﻿<section class="puffles">
-    <section class="search d-none">
-        <div class="content_search">
-            <div class="search_cont">
-                <input placeholder="Search..." type="search" name="" id="">
-                <i class="fa-solid fa-magnifying-glass"></i>
+﻿@using PetShop.ViewModel;
+
+@{
+    ShopViewModel shopViewModel = Model;
+    var shopProduct = shopViewModel.ShopProducts;
+
+}
+
+<main>
+
+    <section class="bg_bone">
+        <section class="search d-none">
+            <div class="content_search">
+                <div class="search_cont">
+                    <input placeholder="Search..." type="search" name="" id="">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </section>
+        <div class="all_bg_bone">
+            <div class="content_testimonials text-center">
+                <h2>Shop List</h2>
             </div>
         </div>
     </section>
-    <div class="all_puffles">
+
+    <section class="pages_full">
+        <a href="index.html">HOME</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a href="">PAGES</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a class="main_page" href="shop.html">SHOP LIST</a>
+    </section>
+
+    <section class="shopping_products">
+        <div class="toaster">
+            Successfully Added
+        </div>
         <div class="container">
-            <div class="content_puffles">
-                <h1> C# SHOP PAGE</h1>
+            <div class="content_shopping_products">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            @foreach(var item in shopProduct)
+                            {
+                                <div class="col-lg-4">
+                                    <div class="box_shopping">
+                                        <div class="card_product" id="1">
+                                            <div class="image_card_product">
+                                                <img src="/assets/@item.ImageUrl"
+                                                     alt="" />
+                                            </div>
+                                            <div class="bottom_product_part">
+                                                <div class="product_name">
+                                                    <a href="#">@item.Name</a>
+                                                </div>
+                                                <div class="product_price">
+                                                    <p class="price">$<span>@item.Price</span></p>
+                                                </div>
+                                                <button class="add_to_card">ADD TO CARD</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+</main>

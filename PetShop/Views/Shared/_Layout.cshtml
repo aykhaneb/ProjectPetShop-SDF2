@@ -93,47 +93,27 @@
                     <a asp-action="Index" asp-controller="Home">HOME</a>
                     <div class="pages_category_position">
                         <button id="pages">PAGES</button>
-                        <section class="pages_category d-none">
-                            <div class="content_pages">
-                                <ul style="list-style: none">
-                                    <li><a asp-action="Index" asp-controller="About">ABOUT US</a></li>
-                                    <li><a href="offer.html">WHAT WE OFFER</a></li>
-                                    <li><a href="testimonials.html">TESTIMONIALS</a></li>
-                                    <li><a href="pricing.html">PRICING LIST</a></li>
-                                </ul>
-                            </div>
-                        </section>
                     </div>
-                    <a asp-action="Index" asp-controller="Blog">BLOG</a>
-                    <a asp-action="Index" asp-controller="Gallery">GALLERY</a>
+                    <a asp-action="Index" asp-controller="Contact">CONTACT</a>
                     <div class="elements_category_position">
-                        <button id="elements">ELEMENTS</button>
-                        <section class="elements_category d-none">
-                            <div class="content_pages">
-                                <ul style="list-style: none">
-                                    <li><a href="contact.html">CONTACT</a></li>
-                                    <li><a href="forms.html">FORMS</a></li>
-                                    <li><a href="tabs.html">TABS&ACCORDIONS</a></li>
-                                </ul>
-                            </div>
-                        </section>
+                        <a asp-action="Index" asp-controller="About">ABOUT</a>
                     </div>
-                    <a href="shop.html">SHOP</a>
+                    <a asp-action="Index" asp-controller="Shop">SHOP</a>
                 </div>
                 <div class="icons ">
                     <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
                     <div class="users_category_position d-flex justify-content-between">
                         <i id="user" class="fa-solid fa-user"></i>
-                        <section class="users_category d-none">
+                        @*<section class="users_category d-none">
                             <div class="content_pages">
                                 <ul style="list-style: none">
                                     <li><a asp-action="Register" asp-controller="Account">REGISTER</a></li>
                                     <li><a asp-action="Login" asp-controller="Account">LOGIN</a></li>
                                 </ul>
                             </div>
-                        </section>
+                        </section>*@
                         <div class="all_basket">
-                            <a href="basket.html">
+                            <a asp-action="Index" asp-controller="Basket">
                                 <i id="basket" class="fa-solid fa-cart-shopping"></i>
                                 <span>0</span>
                             </a>
