@@ -5,6 +5,7 @@
     var offer = homeViewModel.Offers;
     var featured_Product = homeViewModel.FeaturedProducts;
     var organic = homeViewModel.Organics;
+    var hurry = homeViewModel.Hurries;
 
 }
 
@@ -101,18 +102,20 @@
 
 <section class="hurry">
     <div class="all_hurry">
-        <div class="container">
-            <div class="content_hurry">
-                <h2>Hurry up!</h2>
-                <h4>Save 50% on all items your first order</h4>
-                <p>
-                    Shop today to save big on your first order at Puffles Store and
-                    get everything that your dog <br />
-                    needs to stay healthy and happy.
-                </p>
-                <a href="">SHOP NOW</a>
+        @foreach(var item in hurry)
+        {
+            <div class="container">
+                <div class="content_hurry">
+                    <h2>@item.Title</h2>
+                    <h4>@item.Name</h4>
+                    <p>
+                        @item.Description
+                    </p>
+                    <a asp-controller="Shop" asp-action="index">SHOP NOW</a>
+                </div>
             </div>
-        </div>
+        }
+       
     </div>
 </section>
 
@@ -124,7 +127,7 @@
                 <h4>
                     Pamper your pets with our range of quality dog & cat treats
                 </h4>
-                <a href="">SHOP NOW</a>
+                <a asp-controller="Shop" asp-action="index">SHOP NOW</a>
             </div>
         </div>
     </div>

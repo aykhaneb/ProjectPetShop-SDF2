@@ -18,6 +18,7 @@ namespace PetShop.DAL
         public DbSet<Organic> Organic { get; set; }
         public DbSet<Team> Team { get; set; }
         public DbSet<ShopProduct> ShopProduct { get; set; }
+        public DbSet<Hurry> Hurry { get; set; }
 
     }
 }

@@ -19,6 +19,7 @@ namespace PetShop.Controllers
             var offer_parts = _dbContext.OfferPart.ToList();
             var offers = _dbContext.Offer.ToList();
             var organics = _dbContext.Organic.ToList();
+            var hurries = _dbContext.Hurry.ToList();
 
             var homeViewModel = new HomeViewModel
             {
@@ -26,6 +27,7 @@ namespace PetShop.Controllers
                 OfferParts = offer_parts,
                 Offers = offers,
                 Organics = organics,
+                Hurries = hurries,
             };
 
             return View(homeViewModel);
